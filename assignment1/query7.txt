@@ -1,0 +1,3 @@
+SELECT customersT.CUSTOMER_ID, customersT.CU_AGE_RANGE, customersT.CU_GENDER, SalesDataT.[Total Quantity], SalesDataT.[Total Sales]
+FROM customersT, SalesDataT
+WHERE customersT.CUSTOMER_ID = SalesDataT.CUSTOMER_ID;
