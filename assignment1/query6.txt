@@ -1,0 +1,4 @@
+SELECT transactionsT.CUSTOMER_ID, Sum(transactionsT.QUANTITY_SOLD) AS [Total Quantity], Sum(transactionsT.SALES_VALUE) AS [Total Sales] 
+INTO SalesDataT
+FROM transactionsT
+GROUP BY transactionsT.CUSTOMER_ID;
