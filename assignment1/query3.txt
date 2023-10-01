@@ -1,0 +1,4 @@
+SELECT TblSOrders.BrewerID, COUNT(TblSOrders.[SQuantity Ordered]) AS [Number of Keg Orders], SUM(TblSOrders.[SQuantity Ordered]) AS [Total Keg Quantity]
+FROM TblSOrders
+WHERE TblSOrders.[Keg or Case?] = 'Keg'
+GROUP BY TblSOrders.BrewerID;

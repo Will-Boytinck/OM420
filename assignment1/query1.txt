@@ -1,0 +1,4 @@
+SELECT TblSOrders.SOrderNumber, TblSOrders.[Keg or Case?], TblSOrders.[SQuantity Ordered]
+FROM TblSOrders
+WHERE TblSOrders.[SQuantity Ordered] >=5
+ORDER BY TblSOrders.[SQuantity Ordered] DESC;

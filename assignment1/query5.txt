@@ -1,0 +1,5 @@
+SELECT TblSOrders.SOrderNumber, TblSOrders.[Date of SOrder], TblSDeliveries.[Date of SDelivery], TblSOrders.[SQuantity Ordered], TblSDeliveries.[SQuantity Delivered]
+FROM TblSOrders, TblSDeliveries
+WHERE TblSOrders.SOrderNumber = TblSDeliveries.SOrderNumber
+AND TblSOrders.[SQuantity Ordered] = TblSDeliveries.[SQuantity Delivered]
+

@@ -1,0 +1,5 @@
+SELECT TblSOrders.SOrderNumber, TblSOrders.[Keg or Case?], TblSOrders.[SQuantity Ordered]
+FROM TblSOrders
+WHERE TblSOrders.[Keg or Case?] = 'Keg' AND TblSOrders.[SQuantity Ordered] >=3
+OR TblSOrders.[Keg or Case?] = 'Case' AND TblSOrders.[SQuantity Ordered] >=5
+ORDER BY TblSOrders.[SQuantity Ordered] DESC; 
