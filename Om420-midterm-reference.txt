@@ -1,0 +1,153 @@
+SQL Reference:
+-------------------------------------
+--> Keywords
+* SELECT
+* FROM
+* WHERE
+* AND
+* OR (wrap brackets in or for operator precedence)
+* GROUP BY: used after WHERE or after FROM if no where clause
+* HAVING: used after GROUP BY, can use functions that are used in the select statement
+* AS: Create a new generatable column (SELECT x+100 AS [xPlus] FROM myTable)
+* DISTINCT: eliminate duplicate rows (SELECT DISTINCT x FROM myTable)
+* IN: where condition in data (WHERE x IN ('this', 'that'))
+* BETWEEN: where conditionn between (WHERE x BETWEEN 1000 AND 2000) --> (inclusive, inclusive)
+* ORDER BY: ASC (ascending) DESC (descending)
+* INSERT INTO table VALUES (1,2,3,4,5)
+* UPDATE: UPDATE table SET col=col+300 WHERE col=100
+* DELETE
+* INTO
+
+--> Joins
+LEFT JOIN (join on same attribute)
+	LEFT JOIN table
+	ON table.thing = otherTable.thing
+
+
+
+--> Functions (are used in the SELECT line)
+* AVG() -- gives the average of the given column
+* SUM() -- gives the total of all the rows
+* MAX() -- largest figure
+* MIN() -- smallest figure
+* COUNT(*) | COUNT(<column>) -- number of rows satisfying the conditions | number of rows for which the column is not null
+
+--> Operators
+* &: Concatenate columns to produce a single output (SELECT x & y AS z)
+* 'xyz': add a string literal to output (SELECT x & 'is a' & y AS z)
+* <>: Not equal
+* LIKE: strings where wildcards are used (WHERE name LIKE 'J*') -- display the name where it starts with J
+* = (DO NOT USE double equal)
+
+
+
+Data preparation in R:
+---------------------------
+* logical operators
+	* |
+	* &
+	* %in c(1,2)
+	* !
+
+* complete.cases(dataFrame)
+	shows TRUE if each row does not have NA
+	use sum(complete.cases(dataFrame)) to count number of rows that are complete
+
+* Getting rid of NA
+	na.omit(dataFrame)
+
+* Get which rows are missing / NA
+	missing <- is.na(dataFrame$col)
+
+* filtering
+	someData <- filter(dataFrame, thing == 1)
+	(only includes rows where the condition is TRUE)
+
+* to subset a dataFrame
+	select(dataFrame, col1, col2)
+		functions: starts_with("thing"), ends_with("thing), contains("thing)
+
+* to add a new column
+	new <- mutate(dataFrame, new_col = col1 + 5)
+
+
+* replacing data
+	na_rows <- is.na(data$col)
+	data$col <- new
+
+* number of rows
+	nrow(dataFrame)
+
+* column names
+	names(data)
+
+*median
+	median(data$col)
+
+* type functions
+	typeof(7)
+	is.numeric(7)
+	is.character(7)
+	is.vector(x)
+	as.character or as.numeric [type casting]
+
+
+* comparing vectors
+	identical()
+	all.equal()
+
+* other functions
+	mean(), median(), max(), min(), length(), sum()
+
+
+
+
+
+Data exploration in R:
+-----------------------
+
+* Opening statement:
+	ggplot (data = myData) +
+
+* To create a Scatterplot
+	geom_point(mapping = aes(x = somevar, y = somevar2))
+
+* To create a trend line
+	geom_smooth(mapping = aes(x = somevar, y = somevar2))
+
+* To create a bar graph
+	geom_bar(mapping = aes(x  = somevar))
+	--> on the y-axis it displays count
+
+* To create a histogram
+	geom_histogram(mapping = aes(x = somevar), binwidth = 0.5
+
+* Filtering data
+	smaller <- filter(mydata, myvar < 5)
+
+* Overlaying multiple histograms
+	geom_freqpoly(binwidth = 0.1)
+
+* Outliers
+	subset <- filter(myData, y < 3 | y > 20)
+	this INCLUDES only values y < 3 or y > 20
+
+* Two Categorical variables
+	geom_count(mapping = aes(x = categ1, y = categ2))
+
+* To bin in 2d
+	geom_bin2d(mapping = aes(x = somevar, y = somevar2))
+
+
+* Other mappings
+	color/size/shape = class
+	color = "red"
+	linetype = somevar
+	se = FALSE (true by default, gets rid of shading)
+	
+	
+	
+	
+	
+
+
